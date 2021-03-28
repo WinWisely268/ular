@@ -23,7 +23,7 @@ builds:
       - goos: windows
         goarch: arm64
     id: booty
-    main: ./main.go ./engine.go ./render.go
+    main: ./cmd/ular.go
     binary: ular
 
 archives:

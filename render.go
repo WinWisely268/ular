@@ -1,5 +1,5 @@
 // i know that renderer should not be mixed with the game data stats
-package main
+package ular
 
 import (
 	"fmt"
