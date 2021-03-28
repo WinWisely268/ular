@@ -227,7 +227,7 @@ func (g *game) move(d direction) {
 
 // onUpdateCallback is the function that is called on every tick.
 func (g *game) onUpdateCallback() {
-	if g.state.isPaused() {
+	if g.state.isPaused() || g.state.isGameOver() {
 		return
 	}
 	head := g.snake.head
