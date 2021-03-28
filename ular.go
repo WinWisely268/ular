@@ -8,6 +8,11 @@ import (
 	"time"
 )
 
+const (
+	minHeight = 30
+	minWidth = 60
+)
+
 func Run(w, h int, isResizeable bool) {
 	encoding.Register()
 	s, err := tcell.NewScreen()
@@ -97,10 +102,10 @@ func Run(w, h int, isResizeable bool) {
 
 func adjustWidthHeight(s tcell.Screen, w, h int) (int, int) {
 	screenW, screenH := s.Size()
-	if w > screenW {
+	if w > screenW || w < minWidth {
 		w = screenW
 	}
-	if h > screenH {
+	if h > screenH || h < minHeight {
 		h = screenH
 	}
 	return w, h

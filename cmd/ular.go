@@ -20,7 +20,7 @@ func main() {
 	flag.IntVar(&w, "w", 0, "width of the game board")
 	flag.IntVar(&h, "h", 0, "height of the game board")
 	flag.BoolVar(&verCmd, "v", false, "show version information")
-	flag.BoolVar(&resizable, "r", true, "resize arena follow screen size")
+	flag.BoolVar(&resizable, "r", false, "resize arena follow screen size")
 	flag.Parse()
 
 	if verCmd {
