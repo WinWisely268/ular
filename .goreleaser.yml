@@ -1,4 +1,4 @@
-project_name: booty
+project_name: ular
 
 before:
   hooks:
@@ -22,7 +22,7 @@ builds:
     ignore:
       - goos: windows
         goarch: arm64
-    id: booty
+    id: ular
     main: ./cmd/ular.go
     binary: ular
 
