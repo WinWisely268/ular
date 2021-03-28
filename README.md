@@ -1,3 +1,5 @@
+[![test](https://github.com/WinWisely268/ular/actions/workflows/tests.yml/badge.svg)](https://github.com/WinWisely268/ular/actions/workflows/tests.yml)
+
 # Ular
 
 Indonesian for snake, a cli game.
