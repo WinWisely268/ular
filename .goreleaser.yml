@@ -1,0 +1,46 @@
+project_name: booty
+
+before:
+  hooks:
+    - go mod download
+env:
+  - GO111MODULE=on
+builds:
+  - env:
+      - CGO_ENABLED=0
+    ldflags:
+      - "-s -w -X main.version={{ .Version }} -X main.revision={{ .ShortCommit }}"
+    flags:
+      - -a
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    id: booty
+    main: ./main.go ./engine.go ./render.go
+    binary: ular
+
+archives:
+  - name_template: "{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - non-existent*
+
+release:
+  github:
+    owner: winwisely268
+    name: ular
+  prerelease: auto
+  name_template: '{{ .Tag }}'
+
+checksum:
+  name_template: 'checksums.txt'
